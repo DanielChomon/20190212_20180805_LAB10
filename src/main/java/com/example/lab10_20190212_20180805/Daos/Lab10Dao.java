@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class Lab10Dao extends BaseDao{
     public void crear(String nombre, String apellido, int edad, int codigo, String correo, String especialidad, String contra){
         String sql="insert into estudiante (nombre, apellido, edad, codigo, correo, "+
-                "especialdad, contra, status) values (?,?,?,?,?,?,sha2(?,256),?)";
+                "especialidad, contrasena, dinero_gastado) values (?,?,?,?,?,?,sha2(?,256),?)";
         try(Connection conn= this.getConnection();
             PreparedStatement pstmt= conn.prepareStatement(sql)){
             pstmt.setString(1,nombre);
@@ -17,7 +17,7 @@ public class Lab10Dao extends BaseDao{
             pstmt.setString(5,correo);
             pstmt.setString(6,especialidad);
             pstmt.setString(7,contra);
-            pstmt.setString(8,"normal");
+            pstmt.setDouble(8,0);
             pstmt.executeUpdate();
         }catch(SQLException e) {
             System.out.println("Hubo un error en la conexión!");
