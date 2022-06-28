@@ -27,7 +27,7 @@ public class TripDao extends BaseDao {
                 trip.setCiudad_origen(rs.getString(3));
                 trip.setCiudad_destino(rs.getString(4));
                 trip.setBoleto(rs.getInt(5));
-                trip.setCosto(rs.getBigDecimal(6));
+                trip.setCosto(rs.getDouble(6));
 
                 Student student = new Student();
                 student.setCodigo(rs.getInt(7));
@@ -67,7 +67,7 @@ public class TripDao extends BaseDao {
                     trip.setCiudad_origen(rs.getString(3));
                     trip.setCiudad_destino(rs.getString(4));
                     trip.setBoleto(rs.getInt(5));
-                    trip.setCosto(rs.getBigDecimal(6));
+                    trip.setCosto(rs.getDouble(6));
 
                     Student student = new Student();
                     student.setCodigo(rs.getInt(7));
@@ -128,7 +128,7 @@ public class TripDao extends BaseDao {
         pstmt.setString(3, trip.getCiudad_origen());
         pstmt.setString(4, trip.getCiudad_destino());
         pstmt.setInt(5, trip.getBoleto());
-        pstmt.setBigDecimal(7, trip.getCosto());
+        pstmt.setDouble(7, trip.getCosto());
 
         pstmt.setInt(6, trip.getCodigo_estudiante().getCodigo());
 

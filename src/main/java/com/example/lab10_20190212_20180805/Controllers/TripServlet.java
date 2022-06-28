@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.sql.SQLException;
 
 @WebServlet(name = "TripServlet", urlPatterns = {"/TripServlet", ""})
@@ -25,20 +24,16 @@ public class TripServlet extends HttpServlet {
 
         RequestDispatcher view;
         StudentDao studentDao = new StudentDao();
-        TripDao jobDao = new TripDao();
+        TripDao tripDao = new TripDao();
 
         switch (action) {
             case "lista":
-                request.setAttribute("listaEmpleados", tripDao.listarViajes());
-                request.setAttribute("listaEmpleadosPorDepas",tripDao.obtenerViajesPorCodigo());
-                view = request.getRequestDispatcher("employees/lista.jsp");
+                request.setAttribute("listaViajes", tripDao.listarViajes());
+                view = request.getRequestDispatcher("trips/lista.jsp");
                 view.forward(request, response);
                 break;
             case "agregar":
                 request.setAttribute("listaViajes", tripDao.listarViajes());
-                request.setAttribute("listaDepartamentos", insuranceDao.listaSeguros());
-                request.setAttribute("listaAlumnos", studentDao.listarAlumnos());
-
                 view = request.getRequestDispatcher("trips/formularioNuevo.jsp");
                 view.forward(request, response);
                 break;
@@ -56,8 +51,6 @@ public class TripServlet extends HttpServlet {
 
                     if (tri != null) {
                         request.setAttribute("viaje", tri);
-                        request.setAttribute("listaAlumnos", jobDao.listarAlumnos());
-                        request.setAttribute("listaSeguros", insuranceDao.listaDepartamentos());
                         view = request.getRequestDispatcher("trips/formularioEditar.jsp");
                         view.forward(request, response);
                     } else {
@@ -71,19 +64,19 @@ public class TripServlet extends HttpServlet {
                 break;
             case "borrar":
                 if (request.getParameter("id") != null) {
-                    String employeeIdString = request.getParameter("id");
-                    int employeeId = 0;
+                    String id_viajeString = request.getParameter("id");
+                    int id_viaje = 0;
                     try {
-                        employeeId = Integer.parseInt(employeeIdString);
+                        id_viaje = Integer.parseInt(id_viajeString);
                     } catch (NumberFormatException ex) {
-                        response.sendRedirect("EmployeeServlet?err=Error al borrar el empleado");
+                        response.sendRedirect("TripServlet?err=Error al borrar el viaje");
                     }
 
-                    Trip tri = tripDao.obtenerViaje(Id_Viaje);
+                    Trip tri = tripDao.obtenerViaje(id_viaje);
 
                     if (tri != null) {
                         try {
-                            tripDao.borrarEmpleado(employeeId);
+                            tripDao.borrarViaje(id_viaje);
                             response.sendRedirect("TripServlet?msg=Viaje borrado exitosamente");
                         } catch (SQLException e) {
                             response.sendRedirect("TripServlet?err=Error al borrar el viaje");
@@ -107,7 +100,7 @@ public class TripServlet extends HttpServlet {
         t.setCiudad_origen(request.getParameter("ciudad_origen"));
         t.setCiudad_destino(request.getParameter("ciudad_destino"));
         t.setBoleto(Integer.parseInt(request.getParameter("boleto")));
-        t.setCosto(new BigDecimal(request.getParameter("costo")));
+        t.setCosto(new Double(request.getParameter("costo")));
 
         String codigo = request.getParameter("codigo");
         Student student = new Student(Integer.parseInt(codigo));

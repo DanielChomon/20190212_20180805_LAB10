@@ -10,7 +10,7 @@ public class Student {
     private String correo;
     private String especialidad;
     private String contrasena;
-    private BigDecimal dinero_gastado;
+    private Double dinero_gastado;
 
     public Student(){}
 
@@ -72,11 +72,11 @@ public class Student {
         this.contrasena = contrasena;
     }
 
-    public BigDecimal getDinero_gastado() {
+    public Double getDinero_gastado() {
         return dinero_gastado;
     }
 
-    public void setDinero_gastado(BigDecimal dinero_gastado) {
+    public void setDinero_gastado(Double dinero_gastado) {
         this.dinero_gastado = dinero_gastado;
     }
 }
