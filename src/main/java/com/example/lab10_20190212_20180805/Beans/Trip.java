@@ -1,5 +1,7 @@
 package com.example.lab10_20190212_20180805.Beans;
 
+import java.math.BigDecimal;
+
 public class Trip {
     private int id_viaje;
     private String fecha_reserva;
@@ -8,7 +10,7 @@ public class Trip {
     private String ciudad_destino;
     private String seguro;
     private int boleto;
-    private double costo;
+    private BigDecimal costo;
 
     public int getId_viaje() {
         return id_viaje;
@@ -66,11 +68,11 @@ public class Trip {
         this.boleto = boleto;
     }
 
-    public double getCosto() {
+    public BigDecimal getCosto() {
         return costo;
     }
 
-    public void setCosto(double costo) {
+    public void setCosto(BigDecimal costo) {
         this.costo = costo;
     }
 }

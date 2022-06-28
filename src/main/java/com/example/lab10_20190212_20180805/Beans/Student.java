@@ -9,8 +9,7 @@ public class Student {
     private int codigo;
     private String correo;
     private String especialidad;
-    private String contra;
-    private String status;
+    private String contrasena;
     private BigDecimal dinero_gastado;
 
     public String getNombre() {
@@ -61,20 +60,12 @@ public class Student {
         this.especialidad = especialidad;
     }
 
-    public String getContra() {
-        return contra;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContra(String contra) {
-        this.contra = contra;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public BigDecimal getDinero_gastado() {
