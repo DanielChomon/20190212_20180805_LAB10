@@ -22,6 +22,9 @@
                class="form-control"
                placeholder="Ingrese Nombre"/>
     </div>
+    <%if(session.getAttribute("error")!=null && session.getAttribute("error").equals("nombreIncorrecto")){%>
+    <div class="text-danger mb-2">el nombre no debe empezar con numero</div>
+    <%}%>
     <div class="form-outline mb-4">
         <label class="form-label" for="apellido">Apellido</label>
         <input name="apellido"
@@ -30,6 +33,9 @@
                class="form-control"
                placeholder="Ingrese Apellido"/>
     </div>
+    <%if(session.getAttribute("error")!=null && session.getAttribute("error").equals("apellidoIncorrecto")){%>
+    <div class="text-danger mb-2">el apellido no debe empezar con numero</div>
+    <%}%>
     <div class="form-outline mb-4">
         <label class="form-label" for="edad">Edad</label>
         <input name="edad"
@@ -76,6 +82,9 @@
                class="form-control"
                placeholder="Ingrese contrasena"/>
     </div>
+    <%if(session.getAttribute("error")!=null && session.getAttribute("error").equals("contraIncorrecto")){%>
+    <div class="text-danger mb-2">la contra debe tener como minumo un mayuscula, numero y caracter especial</div>
+    <%}%>
     <div class="form-outline mb-4">
         <label class="form-label" for="contra1">Confirmar Contrasena</label>
         <input name="contra1"
