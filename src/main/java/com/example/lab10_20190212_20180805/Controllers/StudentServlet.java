@@ -1,6 +1,6 @@
-package com.example.lab10_20190212_20180805.Servlet;
+package com.example.lab10_20190212_20180805.Controllers;
 
-import com.example.lab10_20190212_20180805.Dao.Lab10Dao;
+import com.example.lab10_20190212_20180805.Daos.Lab10Dao;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -8,7 +8,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet(name = "CrearServlet", value = "/CrearServlet")
-public class CrearServlet extends HttpServlet {
+public class StudentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("crear.jsp");

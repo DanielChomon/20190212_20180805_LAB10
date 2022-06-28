@@ -1,7 +1,7 @@
-package com.example.lab10_20190212_20180805.Bean;
+package com.example.lab10_20190212_20180805.Beans;
 
-public class ViajeBean {
-    private int identi;
+public class Trip {
+    private int id_viaje;
     private String fecha_reserva;
     private String fecha_viaje;
     private String ciudad_origen;
@@ -10,12 +10,12 @@ public class ViajeBean {
     private int boleto;
     private double costo;
 
-    public int getIdenti() {
-        return identi;
+    public int getId_viaje() {
+        return id_viaje;
     }
 
-    public void setIdenti(int identi) {
-        this.identi = identi;
+    public void setId_viaje(int identi) {
+        this.id_viaje = identi;
     }
 
     public String getFecha_reserva() {

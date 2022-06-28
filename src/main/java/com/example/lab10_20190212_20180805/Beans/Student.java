@@ -1,6 +1,8 @@
-package com.example.lab10_20190212_20180805.Bean;
+package com.example.lab10_20190212_20180805.Beans;
 
-public class EstudianteBean {
+import java.math.BigDecimal;
+
+public class Student {
     private String nombre;
     private String apellido;
     private int edad;
@@ -9,6 +11,7 @@ public class EstudianteBean {
     private String especialidad;
     private String contra;
     private String status;
+    private BigDecimal dinero_gastado;
 
     public String getNombre() {
         return nombre;
@@ -72,5 +75,13 @@ public class EstudianteBean {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public BigDecimal getDinero_gastado() {
+        return dinero_gastado;
+    }
+
+    public void setDinero_gastado(BigDecimal dinero_gastado) {
+        this.dinero_gastado = dinero_gastado;
     }
 }

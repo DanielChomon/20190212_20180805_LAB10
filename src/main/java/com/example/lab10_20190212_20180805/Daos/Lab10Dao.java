@@ -1,6 +1,4 @@
-package com.example.lab10_20190212_20180805.Dao;
-
-import sun.tools.jstack.JStack;
+package com.example.lab10_20190212_20180805.Daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
