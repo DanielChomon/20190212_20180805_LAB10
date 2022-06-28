@@ -8,9 +8,11 @@ public class Trip {
     private String fecha_viaje;
     private String ciudad_origen;
     private String ciudad_destino;
-    private String seguro;
     private int boleto;
     private BigDecimal costo;
+    private Student codigo_estudiante;
+    private Insurance seguro;
+
 
     public int getId_viaje() {
         return id_viaje;
@@ -52,14 +54,6 @@ public class Trip {
         this.ciudad_destino = ciudad_destino;
     }
 
-    public String getSeguro() {
-        return seguro;
-    }
-
-    public void setSeguro(String seguro) {
-        this.seguro = seguro;
-    }
-
     public int getBoleto() {
         return boleto;
     }
@@ -74,5 +68,21 @@ public class Trip {
 
     public void setCosto(BigDecimal costo) {
         this.costo = costo;
+    }
+
+    public Student getCodigo_estudiante() {
+        return codigo_estudiante;
+    }
+
+    public void setCodigo_estudiante(Student codigo) {
+        this.codigo_estudiante = codigo;
+    }
+
+    public Insurance getSeguro() {
+        return seguro;
+    }
+
+    public void setSeguro(Insurance seguro) {
+        this.seguro = seguro;
     }
 }

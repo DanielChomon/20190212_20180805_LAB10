@@ -4,6 +4,12 @@ public class Insurance {
 
     private String nombre_empresa;
 
+    public Insurance() {}
+
+    public Insurance(String nombre_empresa) {
+        this.nombre_empresa = nombre_empresa;
+    }
+
     public String getNombre_empresa() {
         return nombre_empresa;
     }

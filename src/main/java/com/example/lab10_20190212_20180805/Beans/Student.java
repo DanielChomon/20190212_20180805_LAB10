@@ -12,6 +12,10 @@ public class Student {
     private String contrasena;
     private BigDecimal dinero_gastado;
 
+    public Student(){}
+
+    public Student(int codigo) { this.codigo = codigo;}
+
     public String getNombre() {
         return nombre;
     }
