@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
             case "login":
                 Student student = (Student) session.getAttribute("estudianteLogueado");
                 if(student != null && student.getCodigo() != 0){
-                    response.sendRedirect(request.getContextPath());
+                    response.sendRedirect(request.getContextPath()+"/TripServlet?codigo="+student.getCodigo());
                 }else{
                     RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
                     rd.forward(request, response);

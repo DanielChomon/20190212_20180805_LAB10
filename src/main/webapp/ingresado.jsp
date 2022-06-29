@@ -66,7 +66,7 @@ if(student.getDinero_gastado() >= 10000){ %>
                 <td><%=viaje.getBoleto()%></td>
                 <td><%=viaje.getCosto()%></td>
                 <td>
-                    <a href="<%=request.getContextPath()%>/EditarServlet?&id=<%=viaje.getId_viaje()%>">
+                    <a href="<%=request.getContextPath()%>/EditarServlet?&id=<%=viaje.getId_viaje()%>&codigo=<%=student.getCodigo()%>">
                         <i class="far fa-edit btn-tele p-2 rounded"></i>
                     </a>
                 </td>

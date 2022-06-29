@@ -28,64 +28,18 @@ public class TripServlet extends HttpServlet {
 
         switch (action) {
             case "lista":
+                Student student = studentDao.obtenerEstudiante(Integer.parseInt(request.getParameter("codigo")));
+                request.setAttribute("student", student);
                 request.setAttribute("listaViajes", tripDao.listarViajes());
-                view = request.getRequestDispatcher("trips/lista.jsp");
+                view = request.getRequestDispatcher("ingresado.jsp");
                 view.forward(request, response);
                 break;
             case "agregar":
                 request.setAttribute("listaViajes", tripDao.listarViajes());
-                view = request.getRequestDispatcher("trips/formularioNuevo.jsp");
+                view = request.getRequestDispatcher("agregar.jsp");
                 view.forward(request, response);
                 break;
-            case "editar":
-                if (request.getParameter("id_Viaje") != null) {
-                    String tripIdString = request.getParameter("id_Viaje");
-                    int Id_Viaje = 0;
-                    try {
-                        Id_Viaje = Integer.parseInt(tripIdString);
-                    } catch (NumberFormatException ex) {
-                        response.sendRedirect("EmployeeServlet");
-                    }
 
-                    Trip tri = tripDao.obtenerViaje(Id_Viaje);
-
-                    if (tri != null) {
-                        request.setAttribute("viaje", tri);
-                        view = request.getRequestDispatcher("trips/formularioEditar.jsp");
-                        view.forward(request, response);
-                    } else {
-                        response.sendRedirect("TripServlet");
-                    }
-
-                } else {
-                    response.sendRedirect("TripServlet");
-                }
-
-                break;
-            case "borrar":
-                if (request.getParameter("id") != null) {
-                    String id_viajeString = request.getParameter("id");
-                    int id_viaje = 0;
-                    try {
-                        id_viaje = Integer.parseInt(id_viajeString);
-                    } catch (NumberFormatException ex) {
-                        response.sendRedirect("TripServlet?err=Error al borrar el viaje");
-                    }
-
-                    Trip tri = tripDao.obtenerViaje(id_viaje);
-
-                    if (tri != null) {
-                        try {
-                            tripDao.borrarViaje(id_viaje);
-                            response.sendRedirect("TripServlet?msg=Viaje borrado exitosamente");
-                        } catch (SQLException e) {
-                            response.sendRedirect("TripServlet?err=Error al borrar el viaje");
-                        }
-                    }
-                }else{
-                    response.sendRedirect("TripServlet?err=Error al borrar el viaje");
-                }
-                break;
             default:
                 response.sendRedirect("TripServlet");
         }
